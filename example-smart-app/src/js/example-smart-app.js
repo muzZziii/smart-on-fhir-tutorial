@@ -17,7 +17,7 @@
         var pt = patient.read();
         console.log("Value of patient in OnReady");
         console.log(pt);
-        var obv = smart.patient.api.fetchAll({
+        /*var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
                       code: {
@@ -29,9 +29,9 @@
                   });
 
         $.when(pt, obv).fail(onError);
-
-        $.when(pt, obv).done(function(patient, obv) {
-          var byCodes = smart.byCodes(obv, 'code');
+*/
+        $.when(pt).done(function(patient) {
+        //  var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
           var fname = '';
@@ -42,11 +42,11 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          var height = byCodes('8302-2');
-          var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-          var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-          var hdl = byCodes('2085-9');
-          var ldl = byCodes('2089-1');
+        //  var height = byCodes('8302-2');
+         // var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
+        //  var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+//var hdl = byCodes('2085-9');
+       //   var ldl = byCodes('2089-1');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
