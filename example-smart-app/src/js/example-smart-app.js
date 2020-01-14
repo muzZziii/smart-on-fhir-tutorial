@@ -1,16 +1,22 @@
 (function(window){
   window.extractData = function() {
+    debugger;
     var ret = $.Deferred();
-
+    console.log("Value of Ret");
+    console.log(ret);
     function onError() {
       console.log('Loading error', arguments);
       ret.reject();
     }
 
     function onReady(smart)  {
+      console.log("Value of smart in OnReady");
+      console.log(smart);
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        console.log("Value of patient in OnReady");
+        console.log(pt);
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
